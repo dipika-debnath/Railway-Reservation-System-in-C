@@ -1,0 +1,33 @@
+name: Compile C Programs
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile all C programs
+        run: |
+          set -e
+
+          mkdir -p build
+
+          for file in $(find programs practice master -name "*.c"); do
+            echo "Compiling: $file"
+
+            output="build/$(basename "${file%.c}")"
+
+            gcc -std=c11 -Wall -Wextra -pedantic "$file" -o "$output"
+          done
+
+          echo "All C programs compiled successfully."
