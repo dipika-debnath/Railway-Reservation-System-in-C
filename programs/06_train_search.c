@@ -3,20 +3,28 @@
 
 int main()
 {
-    int n, i, choice, trainNo, found = 0;
-    char searchName[30];
+    int n, i, choice;
+    int trainNo[10];
     char trainName[10][30];
-    int numbers[10];
+    int found = 0;
 
-    printf("Enter number of trains: ");
+    printf("===== TRAIN SEARCH SYSTEM =====\n");
+
+    printf("Enter number of trains (maximum 10): ");
     scanf("%d", &n);
+
+    if(n <= 0 || n > 10)
+    {
+        printf("Invalid number of trains.\n");
+        return 0;
+    }
 
     for(i = 0; i < n; i++)
     {
-        printf("\nTrain %d\n", i + 1);
+        printf("\n--- Train %d ---\n", i + 1);
 
         printf("Enter train number: ");
-        scanf("%d", &numbers[i]);
+        scanf("%d", &trainNo[i]);
 
         printf("Enter train name: ");
         scanf(" %[^\n]", trainName[i]);
@@ -30,16 +38,18 @@ int main()
 
     if(choice == 1)
     {
-        printf("Enter train number to search: ");
-        scanf("%d", &trainNo);
+        int searchNumber;
+
+        printf("Enter train number: ");
+        scanf("%d", &searchNumber);
 
         for(i = 0; i < n; i++)
         {
-            if(numbers[i] == trainNo)
+            if(trainNo[i] == searchNumber)
             {
-                printf("\nTrain Found!\n");
-                printf("Train Number: %d\n", numbers[i]);
-                printf("Train Name: %s\n", trainName[i]);
+                printf("\n===== TRAIN FOUND =====\n");
+                printf("Train Number : %d\n", trainNo[i]);
+                printf("Train Name   : %s\n", trainName[i]);
                 found = 1;
                 break;
             }
@@ -47,16 +57,18 @@ int main()
     }
     else if(choice == 2)
     {
-        printf("Enter train name to search: ");
+        char searchName[30];
+
+        printf("Enter train name: ");
         scanf(" %[^\n]", searchName);
 
         for(i = 0; i < n; i++)
         {
             if(strcmp(trainName[i], searchName) == 0)
             {
-                printf("\nTrain Found!\n");
-                printf("Train Number: %d\n", numbers[i]);
-                printf("Train Name: %s\n", trainName[i]);
+                printf("\n===== TRAIN FOUND =====\n");
+                printf("Train Number : %d\n", trainNo[i]);
+                printf("Train Name   : %s\n", trainName[i]);
                 found = 1;
                 break;
             }
