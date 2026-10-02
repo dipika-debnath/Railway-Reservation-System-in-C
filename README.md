@@ -93,3 +93,42 @@ Compile any program using:
 
 ```bash
 gcc filename.c -o program
+```
+
+Run the compiled program using:
+
+```bash
+program.exe
+```
+
+For the master program:
+
+```bash
+gcc master/railway_reservation_master.c -o railway
+railway.exe
+```
+
+## Sample Master System Menu
+
+```text
+==========================================================
+           RAILWAY RESERVATION MASTER SYSTEM
+==========================================================
+
+1.  Display Train Details
+2.  Search Train
+3.  Book Passenger(s)
+4.  Check Seat Availability
+5.  Cancel Booking
+6.  Search Passenger by PNR
+7.  Display All E-Tickets
+8.  Update Ticket Seat / Fare
+9.  Calculate Fare by Distance
+10. Display Waitlist
+11. Display Coach Seat Matrix
+12. Display System Summary
+13. Exit
+```
+
+The master program combines the individual railway programs into one
+menu-driven reservation system.
