@@ -81,3 +81,12 @@ C
 ## Purpose
 
 This repository was created as a learning project to practice C programming through railway reservation problems and progressively larger management-system programs.
+
+## How to Run
+
+### Using GCC
+
+Compile any program using:
+
+```bash
+gcc filename.c -o program
