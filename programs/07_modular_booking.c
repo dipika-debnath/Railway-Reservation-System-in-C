@@ -1,37 +1,50 @@
 #include <stdio.h>
 
-void bookTicket(int *seats)
+void displaySeats(int seats)
+{
+    printf("\nAvailable Seats: %d\n", seats);
+}
+
+void bookTicket(int *seats, int *booked)
 {
     if(*seats > 0)
     {
         (*seats)--;
-        printf("Ticket booked successfully.\n");
+        (*booked)++;
+
+        printf("\nTicket booked successfully!");
+        printf("\nPNR Number: %d\n", 1000 + *booked);
     }
     else
     {
-        printf("No seats available.\n");
+        printf("\nSorry! No seats available.\n");
     }
 }
 
-void cancelTicket(int *seats)
+void cancelTicket(int *seats, int *booked)
 {
-    (*seats)++;
-    printf("Ticket cancelled successfully.\n");
-}
+    if(*booked > 0)
+    {
+        (*seats)++;
+        (*booked)--;
 
-void displaySeats(int seats)
-{
-    printf("Available seats: %d\n", seats);
+        printf("\nTicket cancelled successfully.\n");
+    }
+    else
+    {
+        printf("\nNo booked tickets to cancel.\n");
+    }
 }
 
 int main()
 {
     int seats = 5;
+    int booked = 0;
     int choice;
 
     do
     {
-        printf("\n===== RAILWAY RESERVATION =====\n");
+        printf("\n===== RAILWAY RESERVATION SYSTEM =====\n");
         printf("1. Book Ticket\n");
         printf("2. Cancel Ticket\n");
         printf("3. Display Available Seats\n");
@@ -42,11 +55,11 @@ int main()
         switch(choice)
         {
             case 1:
-                bookTicket(&seats);
+                bookTicket(&seats, &booked);
                 break;
 
             case 2:
-                cancelTicket(&seats);
+                cancelTicket(&seats, &booked);
                 break;
 
             case 3:
@@ -54,11 +67,11 @@ int main()
                 break;
 
             case 4:
-                printf("Exiting system...\n");
+                printf("\nThank you for using the Railway Reservation System.\n");
                 break;
 
             default:
-                printf("Invalid choice.\n");
+                printf("\nInvalid choice. Try again.\n");
         }
 
     } while(choice != 4);
