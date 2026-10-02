@@ -1,6 +1,8 @@
 # Railway Reservation System in C
+
 [![Compile C Programs](https://github.com/YOUR-USERNAME/Railway-Reservation-System-in-C/actions/workflows/c-compile.yml/badge.svg)](https://github.com/YOUR-USERNAME/Railway-Reservation-System-in-C/actions/workflows/c-compile.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A comprehensive Railway Reservation System developed in C to practice and demonstrate core programming concepts.
 
 ## Project Structure
